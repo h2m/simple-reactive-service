@@ -1,0 +1,10 @@
+.DS_Store
+
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IntelliJ: user specific settings
+/.idea/
+*.iml
+out/
