@@ -8,7 +8,7 @@ Running this service under MacOS and putting it under some load results in excep
 
     $ gradle bootRun
     
-To generate some load, you might use loadtest…
+To generate some load, you might use [loadtest](https://www.npmjs.com/package/loadtest):
 
     $ loadtest -n 100 -c 10 "http://localhost:8080/weather?lat=53.551086&lon=9.993682"
     
