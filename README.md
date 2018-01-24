@@ -4,11 +4,28 @@ This service demonstrates a reactive web service retrieving raw weather data fro
 
 Running this service under MacOS and putting it under some load results in exceptions that do not occur under Linux.
 
-## How to run it
+## How to run it locally
 
     $ gradle bootRun
+
+## How to run it in Cloudfoundry
+
+    $ gradle build
+    $ cf push
     
-To generate some load, you might use [loadtest](https://www.npmjs.com/package/loadtest):
+This uses the manifest.yml to deploy
+
+    ---
+    applications:
+     - name: simple-reactive-service
+       random-route: true
+       path: build/libs/simple-reactive-service-0.0.1.jar
+       memory: 256M
+       instances: 1
+
+## Generate Load
+    
+To generate some load, you might use [loadtest](https://www.npmjs.com/package/loadtest), on IBM Cloud, the endpoint looks like this: https://simple-reactive-service-paragraphistical-bori.eu-gb.mybluemix.net/weather?lat=53.551086&lon=9.993682
 
     $ loadtest -n 100 -c 10 "http://localhost:8080/weather?lat=53.551086&lon=9.993682"
     
